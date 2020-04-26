@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "269625294361",
+    "firebase_url": "https://entregasemsobral-49e10.firebaseio.com",
+    "project_id": "entregasemsobral-49e10",
+    "storage_bucket": "entregasemsobral-49e10.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:269625294361:android:ee6b6d6a0c712a5337f488",
+        "android_client_info": {
+          "package_name": "br.com.quadrosolucoes.entregasemsobral"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "269625294361-ves531cm20t0d8rkpk18k3le815mfh9e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_2alhIX4hz1jd1ZqN9OEwYrtHhlS4II4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "269625294361-ves531cm20t0d8rkpk18k3le815mfh9e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
