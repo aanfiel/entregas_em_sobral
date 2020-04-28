@@ -19,160 +19,25 @@ class MyHomePage extends StatelessWidget {
         drawerSubtitle: 'Guia de comércios e serviços em domicílio',
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.all(16.0),
-            child: Column(
-              children: <Widget>[
-                TelaPrincipalBanner(
+        child: Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Column(
+            children: <Widget>[
+              Expanded(
+                flex: 1,
+                child: TelaPrincipalBanner(
                     mensagem: 'Conheça todos os comércios fazendo entregas na cidade de Sobral durante a quarentena.',
                 ),
-                TelaPrincipalCategorias(
-                  nomeDaCategoria: 'Colecionáveis:',
+              ),
+              Expanded(
+                flex: 3,
+                child: Container(
+                  width: double.infinity,
+                  //color: Colors.lightBlue,
+                  child: ListaCategoriasBd(),
                 ),
-                Divider(),
-                SizedBox(
-                  height: 200.0,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: <Widget>[
-                      CardEmpresa(
-                        nomeDaEmpresa: 'JOV & GEEK',
-                        descricao: 'Artigos para colecionadores',
-                        imagem: 'jovgeek.png',
-                        instagram: 'jovgeek',
-                      ),
-                      CardEmpresa(
-                        nomeDaEmpresa: 'JOV & GEEK',
-                        descricao: 'Artigos para colecionadores',
-                        imagem: 'jovgeek.png',
-                        instagram: 'jovgeek',
-                      ),
-                      CardEmpresa(
-                        nomeDaEmpresa: 'JOV & GEEK',
-                        descricao: 'Artigos para colecionadores',
-                        imagem: 'jovgeek.png',
-                        instagram: 'jovgeek',
-                      ),
-                      CardEmpresa(
-                        nomeDaEmpresa: 'JOV & GEEK',
-                        descricao: 'Artigos para colecionadores',
-                        imagem: 'jovgeek.png',
-                        instagram: 'jovgeek',
-                      ),
-                    ],
-                  ),
-                ),
-                TelaPrincipalCategorias(
-                  nomeDaCategoria: 'Colecionáveis:',
-                ),
-                Divider(),
-                SizedBox(
-                  height: 200.0,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: <Widget>[
-                      CardEmpresa(
-                        nomeDaEmpresa: 'JOV & GEEK',
-                        descricao: 'Artigos para colecionadores',
-                        imagem: 'jovgeek.png',
-                        instagram: 'jovgeek',
-                      ),
-                      CardEmpresa(
-                        nomeDaEmpresa: 'JOV & GEEK',
-                        descricao: 'Artigos para colecionadores',
-                        imagem: 'jovgeek.png',
-                        instagram: 'jovgeek',
-                      ),
-                      CardEmpresa(
-                        nomeDaEmpresa: 'JOV & GEEK',
-                        descricao: 'Artigos para colecionadores',
-                        imagem: 'jovgeek.png',
-                        instagram: 'jovgeek',
-                      ),
-                      CardEmpresa(
-                        nomeDaEmpresa: 'JOV & GEEK',
-                        descricao: 'Artigos para colecionadores',
-                        imagem: 'jovgeek.png',
-                        instagram: 'jovgeek',
-                      ),
-                    ],
-                  ),
-                ),
-                TelaPrincipalCategorias(
-                  nomeDaCategoria: 'Colecionáveis:',
-                ),
-                Divider(),
-                SizedBox(
-                  height: 200.0,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: <Widget>[
-                      CardEmpresa(
-                        nomeDaEmpresa: 'JOV & GEEK',
-                        descricao: 'Artigos para colecionadores',
-                        imagem: 'jovgeek.png',
-                        instagram: 'jovgeek',
-                      ),
-                      CardEmpresa(
-                        nomeDaEmpresa: 'JOV & GEEK',
-                        descricao: 'Artigos para colecionadores',
-                        imagem: 'jovgeek.png',
-                        instagram: 'jovgeek',
-                      ),
-                      CardEmpresa(
-                        nomeDaEmpresa: 'JOV & GEEK',
-                        descricao: 'Artigos para colecionadores',
-                        imagem: 'jovgeek.png',
-                        instagram: 'jovgeek',
-                      ),
-                      CardEmpresa(
-                        nomeDaEmpresa: 'JOV & GEEK',
-                        descricao: 'Artigos para colecionadores',
-                        imagem: 'jovgeek.png',
-                        instagram: 'jovgeek',
-                      ),
-                    ],
-                  ),
-                ),
-                TelaPrincipalCategorias(
-                  nomeDaCategoria: 'Colecionáveis:',
-                ),
-                Divider(),
-                SizedBox(
-                  height: 200.0,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: <Widget>[
-                      CardEmpresa(
-                        nomeDaEmpresa: 'JOV & GEEK',
-                        descricao: 'Artigos para colecionadores',
-                        imagem: 'jovgeek.png',
-                        instagram: 'jovgeek',
-                      ),
-                      CardEmpresa(
-                        nomeDaEmpresa: 'JOV & GEEK',
-                        descricao: 'Artigos para colecionadores',
-                        imagem: 'jovgeek.png',
-                        instagram: 'jovgeek',
-                      ),
-                      CardEmpresa(
-                        nomeDaEmpresa: 'JOV & GEEK',
-                        descricao: 'Artigos para colecionadores',
-                        imagem: 'jovgeek.png',
-                        instagram: 'jovgeek',
-                      ),
-                      CardEmpresa(
-                        nomeDaEmpresa: 'JOV & GEEK',
-                        descricao: 'Artigos para colecionadores',
-                        imagem: 'jovgeek.png',
-                        instagram: 'jovgeek',
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

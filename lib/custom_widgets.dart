@@ -1,9 +1,10 @@
-//TRABALHADO EM 23/04/2020
+//TRABALHADO EM 27/04/2020
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class BuildDrawer extends StatelessWidget {
 
@@ -415,7 +416,8 @@ class CardEmpresa extends StatelessWidget {
               children: <Widget>[
                 CircleAvatar(
                   radius: 40.0,
-                  backgroundImage: AssetImage('assets/images/$imagem'),
+                  backgroundImage: NetworkImage(imagem),
+                  backgroundColor: Colors.transparent,
                 ),
                 Container(
                   height: 10.0,
@@ -500,5 +502,81 @@ Future<void> _launchInBrowser(String url) async {
     );
   } else {
     throw 'Could not launch $url';
+  }
+}
+
+class ExibeCategoriaBd extends StatelessWidget {
+
+  final String colecao;
+  final String apelido;
+
+  ExibeCategoriaBd({@required this.colecao, @required this.apelido});
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder(
+      stream: Firestore.instance.collection(colecao).snapshots(),
+      builder: (BuildContext context, AsyncSnapshot snapshot) {
+        if (snapshot.hasError) {
+          return Text('Error: ${snapshot.error}');
+        }
+        switch (snapshot.connectionState) {
+          case ConnectionState.waiting:
+            return LinearProgressIndicator();
+            break;
+          default:
+            return Column(
+              children: [
+                TelaPrincipalCategorias(
+                  nomeDaCategoria: apelido,
+                ),
+                Divider(),
+                SizedBox(
+                  height: 230.0,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: snapshot.data.documents.map<Widget>((DocumentSnapshot doc) {
+                      return CardEmpresa(
+                        nomeDaEmpresa: doc.data['nome'],
+                        descricao: doc.data['descricao'],
+                        imagem: doc.data['imagem'],
+                        instagram: doc.data['instagram'],
+                      );
+                    }
+                    ).toList()
+                  ),
+                ),
+              ],
+            );
+        }
+      },
+    );
+  }
+}
+
+class ListaCategoriasBd extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder(
+      stream: Firestore.instance.collection('categorias').snapshots(),
+      builder: (BuildContext context, AsyncSnapshot snapshot) {
+        if (snapshot.hasError) {
+          return Text('Error: ${snapshot.error}');
+        }
+        switch (snapshot.connectionState) {
+          case ConnectionState.waiting:
+            return LinearProgressIndicator();
+            break;
+          default:
+            return ListView(
+              children: snapshot.data.documents.map<Widget>((DocumentSnapshot doc) {
+                return ExibeCategoriaBd(colecao: doc.data['nome'], apelido: doc.data['apelido']);
+              }
+              ).toList()
+            );
+        }
+      },
+    );
   }
 }
