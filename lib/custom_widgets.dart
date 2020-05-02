@@ -320,45 +320,60 @@ class DrawerBottomInfo extends StatelessWidget {
 
 class TelaPrincipalBanner extends StatelessWidget {
 
-  final String mensagem;
+  final String titulo;
+  final String subtitulo;
 
-  TelaPrincipalBanner({@required this.mensagem});
+  TelaPrincipalBanner({@required this.titulo, @required this.subtitulo});
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            Colors.lightBlueAccent,
-            Colors.blue,
+            Colors.black,
+            Colors.black87,
           ],
         ),
         borderRadius: BorderRadius.only(
-          topRight: Radius.circular(10.0),
-          topLeft: Radius.circular(10.0),
-          bottomRight: Radius.circular(10.0),
-          bottomLeft: Radius.circular(10.0),
+          topRight: Radius.circular(0.0),
+          topLeft: Radius.circular(0.0),
+          bottomRight: Radius.circular(0.0),
+          bottomLeft: Radius.circular(0.0),
         ),
         color: Colors.blue,
       ),
       width: double.infinity,
-      height: 120.0,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Center(
-          child: Text(
-            mensagem,
-            textAlign: TextAlign.center,
+      //height: 200.0,
+      child: Center(
+        child: RichText(
+          text: TextSpan(
+            text: subtitulo.toUpperCase(),
             style: GoogleFonts.quicksand(
               textStyle: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.bold
+                color: Colors.grey,
+                fontWeight: FontWeight.bold,
+                fontSize: 12.0,
               ),
             ),
+            children: <TextSpan>[
+              TextSpan(
+                text: '\n',
+              ),
+              TextSpan(
+                text: titulo,
+                style: GoogleFonts.quicksand(
+                  textStyle: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18.0,
+                    //fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),
@@ -577,6 +592,21 @@ class ListaCategoriasBd extends StatelessWidget {
             );
         }
       },
+    );
+  }
+}
+
+class StandardAppBar extends StatelessWidget {
+  const StandardAppBar({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      title: Text(
+        'Entregas em Sobral',
+      ),
     );
   }
 }
