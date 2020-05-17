@@ -1,3 +1,5 @@
+import 'package:entregasemsobral/faca_parte.dart';
+import 'package:entregasemsobral/founders.dart';
 import 'package:flutter/material.dart';
 import 'homepage.dart';
 
@@ -12,7 +14,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Entregas em Sobral',
-      home: MyHomePage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => MyHomePage(),
+        '/facaparte': (context) => FacaParte(),
+        '/contato': (context) => FaleConosco(),
+      },
     );
   }
 }

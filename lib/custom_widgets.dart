@@ -1,4 +1,4 @@
-//TRABALHADO EM 27/04/2020
+//TRABALHADO EM 16/05/2020
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -507,6 +507,51 @@ class CardEmpresa extends StatelessWidget {
   }
 }
 
+class CardEmail extends StatelessWidget {
+
+  final String assunto;
+  final String corpoDaMensagem;
+  final String label;
+
+  CardEmail({@required this.corpoDaMensagem, @required this.assunto, @required this.label});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        _launchEmail(assunto, corpoDaMensagem);
+      },
+      child: Card(
+        child: Container(
+          padding: EdgeInsets.all(16.0),
+
+          child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                Align(
+                  alignment: Alignment.center,
+                  child: Container(
+                    child: Text(
+                      label,
+                      style: GoogleFonts.quicksand(
+                        textStyle: TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.indigo,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 Future<void> _launchInBrowser(String url) async {
   if (await canLaunch(url)) {
     await launch(
@@ -515,6 +560,15 @@ Future<void> _launchInBrowser(String url) async {
       forceWebView: false,
       headers: <String, String>{'my_header_key': 'my_header_value'},
     );
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+_launchEmail(String subject, String body) async {
+  var url = 'mailto:entregasemsobral@gmail.com?subject=$subject&body=$body';
+  if (await canLaunch(url)) {
+    await launch(url);
   } else {
     throw 'Could not launch $url';
   }
@@ -606,6 +660,75 @@ class StandardAppBar extends StatelessWidget {
     return AppBar(
       title: Text(
         'Entregas em Sobral',
+      ),
+    );
+  }
+}
+
+class CardDesenvolvedor extends StatelessWidget {
+
+  final String nomeDaEmpresa;
+  final String descricao;
+  final String imagem;
+  final String instagram;
+
+  CardDesenvolvedor({@required this.nomeDaEmpresa, @required this.descricao, @required this.instagram, @required this.imagem});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        _launchInBrowser('http://www.instagram.com/$instagram');
+      },
+      child: Card(
+        child: Container(
+          padding: EdgeInsets.all(16.0),
+
+          child: SingleChildScrollView(
+            child: Row(
+              children: [
+                CircleAvatar(
+                  radius: 25.0,
+                  backgroundImage: NetworkImage(imagem),
+                  backgroundColor: Colors.transparent,
+                ),
+                Container(
+                  width: 10.0,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Container(
+                      child: Text(
+                        nomeDaEmpresa.toUpperCase(),
+                        style: GoogleFonts.quicksand(
+                          textStyle: TextStyle(
+                            fontSize: 14.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blue,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      child: Text(
+                        '@'+instagram,
+                        textAlign: TextAlign.left,
+                        style: GoogleFonts.quicksand(
+                          textStyle: TextStyle(
+                            fontSize: 12.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black54,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }

@@ -9,7 +9,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green.shade300,
+        backgroundColor: Colors.indigo,
         title: Text(
           'Entregas em Sobral',
           textAlign: TextAlign.center,
@@ -19,47 +19,37 @@ class MyHomePage extends StatelessWidget {
             ),
           ),
         ),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.mail),
+            onPressed: () {
+              Navigator.pushNamed(context, '/contato');
+
+            },
+          ),
+        ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: (){},
-        foregroundColor: Colors.white,
-        backgroundColor: Colors.green.shade800,
-        icon: Icon(Icons.play_arrow),
-        label: Text(
-          'Faça parte',
-          textAlign: TextAlign.center,
-          style: GoogleFonts.quicksand(
-            textStyle: TextStyle(
-                color: Colors.white,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom: 16.0),
+        child: FloatingActionButton.extended(
+          onPressed: (){
+            Navigator.pushNamed(context, '/facaparte');
+          },
+          foregroundColor: Colors.white,
+          backgroundColor: Colors.indigo,
+          //icon: Icon(Icons.play_arrow),
+          label: Text(
+            'Faça parte',
+            textAlign: TextAlign.center,
+            style: GoogleFonts.quicksand(
+              textStyle: TextStyle(
+                  color: Colors.white,
+              ),
             ),
           ),
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
-        shape: AutomaticNotchedShape(
-          RoundedRectangleBorder(),
-          StadiumBorder(side: BorderSide()),
-        ),
-        color: Colors.green.shade300,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            Icon(Icons.home, color: Colors.white, semanticLabel: 'Início',),
-            //Icon(Icons.grade, color: Colors.white, semanticLabel: 'Avalie-nos',),
-            Icon(Icons.mail, color: Colors.white, semanticLabel: 'Fale Conosco',),
-            Padding(
-              padding: EdgeInsets.all(32.0),
-            ),
-          ],
-        ),
-      ),
-//      drawer: BuildDrawer(
-//        drawerCategories: kDrawerItems,
-//        drawerIcons: kDrawerIcons,
-//        drawerTitle: 'Entregas em Sobral',
-//        drawerSubtitle: 'Guia de comércios e serviços em domicílio',
-//      ),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.all(16.0),
@@ -69,7 +59,7 @@ class MyHomePage extends StatelessWidget {
                 flex: 1,
                 child: TelaPrincipalBanner(
                   subtitulo: 'apoie o comércio local',
-                  titulo: 'Conheça empresas que entregam em sua casa durante a quarentena',
+                  titulo: 'Conheça empresas que estão entregando em sua casa durante a quarentena',
                 ),
               ),
               Expanded(
