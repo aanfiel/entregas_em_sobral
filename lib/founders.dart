@@ -61,25 +61,11 @@ class FaleConosco extends StatelessWidget {
                                 text: '\n\n',
                               ),
                               TextSpan(
-                                text: 'Este projeto foi idealizado por dois estudantes do curso de engenharia de computação da UFC Sobral como parte dos estudos de desenvolvimento de aplicativos móveis. A ideia é contribuir com o comércio local ajudando a tornar o serviço de entrega de seus produtos conhecido por todo o público da cidade. Para o cliente, a vantagem está na comodidade de ter à mão um catálogo sempre atualizado dos comércios de Sobral que estão fazendo entrega.',
+                                text: 'Este projeto foi idealizado por dois estudantes do curso de engenharia de computação da UFC Sobral como parte dos estudos de desenvolvimento de aplicativos móveis. A ideia é contribuir com o comércio local ajudando a tornar o serviço de entrega de seus produtos conhecido por todo o público da cidade. Para o cliente, a vantagem está na comodidade de ter à mão um catálogo sempre atualizado dos comércios de Sobral que fazem a entrega do produto que necessitar.',
                                 style: GoogleFonts.quicksand(
                                   textStyle: TextStyle(
                                     color: Colors.black54,
                                     fontSize: 14.0,
-                                    //fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                              TextSpan(
-                                text: '\n\n',
-                              ),
-                              TextSpan(
-                                text: '#fiqueemcasa',
-                                style: GoogleFonts.quicksand(
-                                  textStyle: TextStyle(
-                                    color: Colors.indigo,
-                                    fontSize: 22.0,
-                                    fontWeight: FontWeight.bold,
                                     //fontWeight: FontWeight.bold,
                                   ),
                                 ),

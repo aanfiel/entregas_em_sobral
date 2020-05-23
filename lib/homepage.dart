@@ -59,7 +59,7 @@ class MyHomePage extends StatelessWidget {
                 flex: 1,
                 child: TelaPrincipalBanner(
                   subtitulo: 'apoie o comércio local',
-                  titulo: 'Conheça empresas que estão entregando em sua casa durante a quarentena',
+                  titulo: 'Conheça empresas que fazem entregas em sua casa',
                 ),
               ),
               Expanded(
